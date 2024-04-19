@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function SideNav(props) {
   
   return (
-    <div className="w-[20%] h-screen  border-r-2 border-zinc-400 px-10 py-1 ">
+    <div className="  w-[20%]   border-r-2 border-zinc-400 px-10 py-1 ">
       <h1 className=" text-2xl text-white font-bold">
         
         <i className=" text-[#6556cd] ri-folder-music-fill mr-2"></i>

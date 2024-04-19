@@ -15,11 +15,11 @@
 }
 ::-webkit-scrollbar{
     width: 7px;
-    height: 7px;
+    height: 6px;
 }
 ::-webkit-scrollbar-thumb{
     border-radius: 2px;
-    background-color: #27224dbc;
+    background-color: #9e93f3bc;
 }
 ::-webkit-scrollbar-thumb:hover{
 
@@ -27,7 +27,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 

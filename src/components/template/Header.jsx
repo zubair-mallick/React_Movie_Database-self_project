@@ -49,11 +49,11 @@ function Header({ data }) {
     }
     return newArray;
   };
-  console.log(randomImages)
+
   return (
     <div className="overflow-hidden">
       <div
-        className="h-[70vh] overflow-hidden relative"
+        className="h-[65vh] overflow-hidden relative"
         style={{
           width: `${imageno * 100}vw`, // Use viewport width (vw) instead of percentage
           marginLeft: `-${currentIndex * 100}vw`, // Slide to the left using vw units
@@ -85,7 +85,7 @@ function Header({ data }) {
                   <span className="">
                     {truncateTitle(
                       item.title && item.original_title
-                        ? `${item.original_title} (${item.title})`
+                        ? `${item.original_title} `
                         : (item.original_title && item.original_title) ||
                             item.name ||
                             item.original_name ||
@@ -109,6 +109,14 @@ function Header({ data }) {
                 <div className="mediatype  text-white  text-xl">
                   <span className="text-purple-200 text-xl">Media Type:</span>{" "}
                   <i className="ri-tape-line mr-2"></i>{item.media_type.toUpperCase()}
+                </div>
+                <div className="watch-trailer-link mt-4">
+                  <Link
+                    to={item.trailer_link} // Add the trailer link dynamically from the data
+                    className="Watchlink py-2  text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2"
+                  >
+                    Watch Trailer
+                  </Link>
                 </div>
               </header>
             </div>

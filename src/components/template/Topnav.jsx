@@ -28,7 +28,7 @@ function Topnav(props) {
     }, [query])
     
     return (
-        <div className='w-full h-[10vh] relative mt-4  ml-[20%] z-50'> 
+        <div className=' h-[10vh] relative pl-4  ml-[20%] z-50'> 
             <i className="text-3xl relative text-zinc-400 ri-search-line"></i>
 
             <input onChange={(e)=>setQuery(e.target.value)} value={query} className=" text-center w-[50%] p-2 text-xl mx-10 outline-none border-none bg-transparent text-zinc-200 " type="text" placeholder='Search Anything' />
