@@ -82,6 +82,6 @@ body {
       bottom: 7px;
     }
   }
-  .Headink{
+  .Headink,.releasedata,.mediatype{
     text-shadow: #000000 1px 2px;
   }

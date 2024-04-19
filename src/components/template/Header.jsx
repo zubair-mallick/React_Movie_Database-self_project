@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Header({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [randomImages, setRandomImages] = useState([]);
-  const [imageno, setImageno] = useState(1);
+  const [imageno, setImageno] = useState(5);
 
   const truncateOverview = (overview) => {
     if (overview && overview.length > 100) {
@@ -49,7 +49,7 @@ function Header({ data }) {
     }
     return newArray;
   };
-
+  console.log(randomImages)
   return (
     <div className="overflow-hidden">
       <div
@@ -96,12 +96,20 @@ function Header({ data }) {
                 <span className="block w-[50%] mx-auto p-5 monospace text-xl text-white font-bold line-clamp-1 leading-[23px] mt-2">
                   {truncateOverview(item.overview)}
                   <Link
-                    
+                    to="/your-more-info-path"
                     className="Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2"
                   >
                     moreinfo
                   </Link>
                 </span>
+                <div className="releasedata text-white  text-xl">
+                  <span className="text-purple-200 text-2xl">Release Date: </span>{" "}
+                  <i className="ri-calendar-line"></i> {item.release_date}
+                </div>
+                <div className="mediatype  text-white  text-xl">
+                  <span className="text-purple-200 text-xl">Media Type:</span>{" "}
+                  <i className="ri-tape-line mr-2"></i>{item.media_type.toUpperCase()}
+                </div>
               </header>
             </div>
           </div>
