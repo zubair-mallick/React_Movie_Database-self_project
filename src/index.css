@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +16,7 @@
 }
 ::-webkit-scrollbar{
     width: 7px;
-    height: 6px;
+    height: 7px;
 }
 ::-webkit-scrollbar-thumb{
     border-radius: 2px;
@@ -92,4 +93,58 @@ body {
   font-family: monospace;
   text-transform: uppercase;
   
+}
+
+
+
+select {
+  padding-left: 2vw;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  
+  outline:0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #181818;
+  background-image: none;
+  flex: 1;
+  /* padding: 0 0.5em; */
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: "Open Sans", sans-serif;
+}
+  select::-ms-expand {
+  display: none;
+  }
+  
+  .select{
+  
+  position:relative;
+  display: flex;
+  width: 15vw;
+  height: 3em;
+  line-height: 3;
+  background: #272720;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+  .select::after 
+  {
+  z-index: 1;
+  content: "\25BC";
+  position:absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #999997;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+  }
+  .select:hover::after {
+  color: #000000;
+ 
 }

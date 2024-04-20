@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Dropdown from "./Dropdown";
 
-function HorizontalCards({ data }) {
+function HorizontalCards({ data}) {
   const scrollRef = useRef(null);
   const containerRef = useRef(null); // Add ref for parent container
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,13 +40,13 @@ function HorizontalCards({ data }) {
   }, [currentIndex, holdingKey, isFocused]);
 
   const handleNext = () => {
-    const nextIndex = currentIndex === data.length - 1 ? 0 : currentIndex + 1;
+    const nextIndex = currentIndex === data.length - 3 ? 0 : currentIndex + 1;
     setCurrentIndex(nextIndex);
     scrollToIndex(nextIndex);
   };
 
   const handlePrevious = () => {
-    const prevIndex = currentIndex === 0 ? data.length - 1 : currentIndex - 1;
+    const prevIndex = currentIndex === 0 ? data.length - 3 : currentIndex - 1;
     setCurrentIndex(prevIndex);
     scrollToIndex(prevIndex);
   };
@@ -72,17 +73,17 @@ function HorizontalCards({ data }) {
 
   return (
     <div
-      className="w-full min-h-[40vh] p-5 mb-5 outline-none relative "
+      className="w-full min-h-[40vh] px-5 mb-5 outline-none relative "
       ref={containerRef}
       tabIndex={0}
       onFocus={handleContainerFocus}
       onBlur={handleContainerBlur}
     >
-      <div className="mb-5">
-        <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
-          Trending
-        </h1>
-      </div>
+      
+
+
+
+   
 
       <div className="w-full min-h-[55%] flex overflow-x-auto overflow-y-hidden outline-none relative">
         <div
@@ -91,7 +92,7 @@ function HorizontalCards({ data }) {
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className="min-w-[30%] bg-zinc-900 mr-5">
+            <div key={i} className="min-w-[18vw] bg-zinc-900 mr-5">
               <img
                 className="w-full min-h-[30%] object-cover overflow-y-hidden"
                 src={
@@ -103,7 +104,7 @@ function HorizontalCards({ data }) {
                 }
                 alt=""
               />
-              <h1 className="text-xl font-black text-white ">
+              <h1 className="text-xl font-black line-clamp-1 text-white ">
                 {(d.original_title || d.name || d.original_name || d.title)
                   .length > 20
                   ? `${(
@@ -126,7 +127,7 @@ function HorizontalCards({ data }) {
               <div className="flex justify-center">
                 {" "}
                 {/* Center the Link */}
-                <Link className="shadow-lg horizontalcardmoreinfo font-[ 'Berkshire Swash','cusive']  Headlink text-blue-200 font-extrabold border-4 border-black rounded-md bg-purple-800 text-2xl px-2 mb-2">
+                <Link className="shadow-lg horizontalcardmoreinfo font-[ 'Berkshire Swash','cusive']  Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-xl px-[10%] mb-2">
                   moreinfo
                 </Link>
               </div>
@@ -154,7 +155,7 @@ function HorizontalCards({ data }) {
         </div>
       </div>
 
-      {/* Navigation Buttons */}
+      
     </div>
   );
 }

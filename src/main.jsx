@@ -10,12 +10,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <AnimatedCursor
         innerScale={2}
         innerStyle={{
-          backgroundColor: 'var(--secondary)',
+          zIndex:99,
+          backgroundColor: 'red',
           mixBlendMode: 'difference', 
-          filter:'opacity(0.3)'
+          filter:'opacity(0.9)'
         }}
         outerStyle={{
-           // Border for outer cursor
+          zIndex:99,
+           
           backgroundColor: 'white',
           mixBlendMode: 'difference', // Box shadow for outer cursor
         }}
