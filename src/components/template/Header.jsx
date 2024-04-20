@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -77,10 +78,10 @@ function Header({ data }) {
               style={{ zIndex: 0, pointerEvents: 'none' }} // Disable pointer events
             ></div>
             <div
-              className="flex justify-center items-center h-full w-[80vw]"
+              className="flex justify-center items-center h-full w-[84vw]"
               style={{ zIndex: 1, pointerEvents: 'auto' }} // Enable pointer events
             >
-              <header id="headertext" className="text-center">
+              <header id="headertext" className="text-center flex  flex-col   ">
                 <h1 className="text-4xl">
                   <span className="">
                     {truncateTitle(

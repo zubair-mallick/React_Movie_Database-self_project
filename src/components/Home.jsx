@@ -41,7 +41,7 @@ function Home(props) {
        <>
         <SideNav/>    
     
-       <div className='w-[80%] overflow-x-hidden  overflow-auto'>
+       <div className='ml-[17vw] overflow-x-hidden  overflow-auto'>
         <Topnav/>
         <Header data={wallpaper}/>
          <HorizontalCards data={Trending} />

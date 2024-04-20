@@ -27,6 +27,7 @@
 }
 
 body {
+  
     /* overflow-x: hidden; */
 }
 
@@ -85,3 +86,10 @@ body {
   .Headink,.releasedata,.mediatype{
     text-shadow: #000000 1px 2px;
   }
+
+.horizontalcardmoreinfo{
+ 
+  font-family: monospace;
+  text-transform: uppercase;
+  
+}
