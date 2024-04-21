@@ -4,10 +4,10 @@ import Dropdown from "./Dropdown";
 
 function HorizontalCards({ data}) {
   const scrollRef = useRef(null);
-  const containerRef = useRef(null); // Add ref for parent container
+  const containerRef = useRef(null); 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [holdingKey, setHoldingKey] = useState(false);
-  const [isFocused, setIsFocused] = useState(false); // Track focus state
+  const [isFocused, setIsFocused] = useState(false); 
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -21,7 +21,8 @@ function HorizontalCards({ data}) {
             setHoldingKey(true);
           }
         }
-      } else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      } 
+      else if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
         containerRef.current.focus();
       }
     };
@@ -92,7 +93,7 @@ function HorizontalCards({ data}) {
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className="min-w-[18vw] bg-zinc-900 mr-5">
+            <div key={i} className=" hover:scale-110 duration-150 hover:grayscale  min-w-[18vw] bg-zinc-900 mr-5">
               <img
                 className="w-full min-h-[30%] object-cover overflow-y-hidden"
                 src={
@@ -121,13 +122,13 @@ function HorizontalCards({ data}) {
                 <span className="text-gray-400 m"> Language: </span>
                 {d.original_language}
               </p>
-              <p className="text-base font-semibold text-white mt-2 mb-6 line-clamp-2">
+              <p className="text-base font-semibold text-white mt-2 mb-3 line-clamp-2">
                 {d.overview}
               </p>
               <div className="flex justify-center">
                 {" "}
                 {/* Center the Link */}
-                <Link className="shadow-lg horizontalcardmoreinfo font-[ 'Berkshire Swash','cusive']  Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-xl px-[10%] mb-2">
+                <Link className="shadow-lg horizontalcardmoreinfo font-[ 'Berkshire Swash','cusive']  Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-xl px-[10%] mb-4">
                   moreinfo
                 </Link>
               </div>
