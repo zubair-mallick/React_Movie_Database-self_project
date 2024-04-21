@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import AnimatedCursor from "react-animated-cursor"
+import Trending from './components/template/Trending';
 
 
 function App(props) {
@@ -10,6 +11,7 @@ function App(props) {
   
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/trending' element={<Trending />} />
       </Routes>
     </div>
   );

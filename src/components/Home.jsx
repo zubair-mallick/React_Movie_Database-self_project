@@ -6,11 +6,12 @@ import Header from "./template/Header";
 import HorizontalCards from "./template/HorizontalCards";
 import Dropdown from "./template/Dropdown";
 import Loader from "./Loader";
-var lc="notSet"
+
 function Home(props) {
   document.title = "ZMDBS || Home";
   const [wallpaper, setWallpaper] = useState(null);
   const [Trending, setTrending] = useState(null);
+  const [lc, setlc] = useState("notSet");
   const [trendingCategory, setTrendingCategory] = useState("all");
   const getHeaderWallpaper = async () => {
     try {
@@ -25,7 +26,7 @@ function Home(props) {
   const getTrending = async () => {
     try {
       const { data } = await axios.get(`/trending/${trendingCategory}/day`);
-      lc=trendingCategory
+      setlc(trendingCategory)
       setTrending(data.results);
     } catch (err) {
       console.log("error:", err);
@@ -35,6 +36,7 @@ function Home(props) {
   useEffect(
     () => {
       !wallpaper && getHeaderWallpaper();
+      
       lc !== trendingCategory && getTrending();
     },
     [Trending,trendingCategory],[]
@@ -45,7 +47,10 @@ function Home(props) {
       <SideNav />
 
       <div className="ml-[17vw] overflow-x-hidden  overflow-auto">
+        <div className="ml-[26%]">
         <Topnav />
+        </div>
+
         <Header data={wallpaper} />
 
         <div className="my-5 px-5 flex justify-between w-full">

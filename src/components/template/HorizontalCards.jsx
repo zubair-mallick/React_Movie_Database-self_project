@@ -40,13 +40,13 @@ function HorizontalCards({ data}) {
   }, [currentIndex, holdingKey, isFocused]);
 
   const handleNext = () => {
-    const nextIndex = currentIndex === data.length - 3 ? 0 : currentIndex + 1;
+    const nextIndex = currentIndex === data.length - 4 ? 0 : currentIndex + 1;
     setCurrentIndex(nextIndex);
     scrollToIndex(nextIndex);
   };
 
   const handlePrevious = () => {
-    const prevIndex = currentIndex === 0 ? data.length - 3 : currentIndex - 1;
+    const prevIndex = currentIndex === 0 ? data.length - 4 : currentIndex - 1;
     setCurrentIndex(prevIndex);
     scrollToIndex(prevIndex);
   };

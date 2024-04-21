@@ -94,7 +94,7 @@ function Header({ data }) {
                     )}
                   </span>
                 </h1>
-                <span className="block w-[50%] mx-auto p-5 monospace text-xl text-white font-bold line-clamp-1 leading-[23px] mt-2">
+                <span className="block w-[50%] mx-auto p-5 monospace text-2xl text-white font-bold line-clamp-1 leading-[23px] mt-2">
                   {truncateOverview(item.overview)}
                   <Link
                     to="/your-more-info-path"

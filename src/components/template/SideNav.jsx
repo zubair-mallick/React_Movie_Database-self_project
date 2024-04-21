@@ -13,7 +13,7 @@ function SideNav(props) {
           New Feeds
         </h1>
 
-        <Link className="hover:bg-[#6556cd] hover:text-white rounded-lg  duration-300 p-2">
+        <Link to="/trending" className="hover:bg-[#6556cd] hover:text-white rounded-lg  duration-300 p-2">
           <h1>
             Trending<i className="ri-fire-fill ml-1 "></i>
           </h1>
