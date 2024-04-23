@@ -9,7 +9,7 @@ import Loader from "./Loader";
 
 function Home(props) {
   document.title = "ZMDBS || Home";
-      const [isOpen, setIsOpen] = useState(true);
+      const [isOpen, setIsOpen] = useState(false);
       
 
   const [wallpaper, setWallpaper] = useState(null);

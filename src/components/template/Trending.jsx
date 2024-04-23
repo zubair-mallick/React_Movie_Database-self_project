@@ -7,6 +7,7 @@ import Card from "./Card";
 import Loader from "../Loader";
 
 function Trending(props) {
+  document.title = "ZMDBS || Trending";
   const navigate = useNavigate();
   const [category, setCategory] = useState("all");
   const [duration, setDuration] = useState("day");

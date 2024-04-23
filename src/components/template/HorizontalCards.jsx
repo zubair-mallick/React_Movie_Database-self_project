@@ -41,13 +41,13 @@ function HorizontalCards({ data}) {
   }, [currentIndex, holdingKey, isFocused]);
 
   const handleNext = () => {
-    const nextIndex = currentIndex === data.length - 4 ? 0 : currentIndex + 1;
+    const nextIndex = currentIndex === data.length - 3 ? 0 : currentIndex + 1;
     setCurrentIndex(nextIndex);
     scrollToIndex(nextIndex);
   };
 
   const handlePrevious = () => {
-    const prevIndex = currentIndex === 0 ? data.length - 4 : currentIndex - 1;
+    const prevIndex = currentIndex === 0 ? data.length - 3 : currentIndex - 1;
     setCurrentIndex(prevIndex);
     scrollToIndex(prevIndex);
   };
@@ -93,17 +93,11 @@ function HorizontalCards({ data}) {
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className=" hover:scale-90 duration-150 hover:grayscale    
-            min-w-[40vw] md:min-w-[20vw] lg:min-w-[26vw] h-[30%] bg-zinc-900 mr-5">
+            <div key={i} className=" hover:scale-105 p-2  duration-150 hover:grayscale    
+            min-w-[40vw] md:min-w-[28vw] lg:min-w-[26vw] h-[30%] bg-zinc-900 mr-5">
               <img
-                className=" min-h-[60%] object-cover overflow-y-hidden"
-                src={
-                  ((d.backdrop_path || d.poster_path) &&
-                    `https://image.tmdb.org/t/p/original${
-                      d.backdrop_path || d.profile_path
-                    }`) ||
-                  "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-                }
+                className=" max-h-[22vh] lg:max-h-[32vh] w-[100%] object-cover overflow-y-hidden"
+                src={(d.backdrop_path|| d.poster_path  ) && `https://image.tmdb.org/t/p/original${d.backdrop_path  || d.poster_path}` || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"}
                 alt=""
               />
               <h1 className="text-xl font-black line-clamp-1 text-white ">
