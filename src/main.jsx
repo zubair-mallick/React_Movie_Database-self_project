@@ -7,7 +7,7 @@ import AnimatedCursor from 'react-animated-cursor'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter >
-  <AnimatedCursor
+  {/* <AnimatedCursor
         innerScale={2}
         innerStyle={{
           zIndex:99,
@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         innerSize={18} // Smaller inner cursor
         outerSize={5} // Larger outer cursor
         outerAlpha={0.8} // Transparency of outer cursor
-      />
+      /> */}
     <App />
   </BrowserRouter>
  

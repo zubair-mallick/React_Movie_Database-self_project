@@ -74,7 +74,7 @@ function HorizontalCards({ data}) {
 
   return (
     <div
-      className="w-full min-h-[40vh] px-5 mb-5 outline-none relative "
+      className="w-full  px-5 mb-5 outline-none relative "
       ref={containerRef}
       tabIndex={0}
       onFocus={handleContainerFocus}
@@ -86,16 +86,17 @@ function HorizontalCards({ data}) {
 
    
 
-      <div className="w-full min-h-[55%] flex overflow-x-auto overflow-y-hidden outline-none relative">
+      <div className="  w-full min-h-[55%] flex   outline-none relative">
         <div
           className="w-full min-h-[55%] overflow-y-hidden flex overflow-x-auto outline-none relative"
           ref={scrollRef}
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className=" hover:scale-110 duration-150 hover:grayscale  min-w-[18vw] bg-zinc-900 mr-5">
+            <div key={i} className=" hover:scale-90 duration-150 hover:grayscale    
+            min-w-[40vw] md:min-w-[20vw] lg:min-w-[26vw] h-[30%] bg-zinc-900 mr-5">
               <img
-                className="w-full min-h-[30%] object-cover overflow-y-hidden"
+                className=" min-h-[60%] object-cover overflow-y-hidden"
                 src={
                   ((d.backdrop_path || d.poster_path) &&
                     `https://image.tmdb.org/t/p/original${

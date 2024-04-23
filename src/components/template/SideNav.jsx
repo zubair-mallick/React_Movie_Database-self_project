@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function SideNav(props) {
   return (
-    <div className=" w-[17vw]   h-screen  fixed   border-r-2 border-zinc-400 px-10 py-1  whitespace-nowrap">
-      <h1 className=" text-2xl text-white font-bold">
+    <div className=" min-w-[15vw] z-30   h-screen  fixed  bg-[#1f1e24]   border-r-2 border-zinc-400 px-10 py-1  whitespace-nowrap">
+      <h1 className=" text-2xl text-white font-bold mt-[1vh]">
         <i className=" text-[#6556cd] ri-folder-music-fill mr-2"></i>
         <span className="">ZMDBS</span>
       </h1>

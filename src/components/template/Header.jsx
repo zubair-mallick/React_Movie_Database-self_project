@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-function Header({ data }) {
+function Header({ data,isOpen }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [randomImages, setRandomImages] = useState([]);
-  const [imageno, setImageno] = useState(5);
+  const [imageno, setImageno] = useState(3);
 
   const truncateOverview = (overview) => {
     if (overview && overview.length > 100) {
@@ -52,12 +51,12 @@ function Header({ data }) {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden w-[100%]">
       <div
-        className="h-[65vh] overflow-hidden relative"
+        className="h-[34vh] lg:h-[64vh]  overflow-hidden relative flex justify-center items-center mb-4"
         style={{
-          width: `${imageno * 100}vw`, // Use viewport width (vw) instead of percentage
-          marginLeft: `-${currentIndex * 100}vw`, // Slide to the left using vw units
+          width: `${imageno * 100}%`, // Use viewport width (vw) instead of percentage
+          marginLeft: `-${currentIndex * 100}%`, // Slide to the left using vw units
           transition: "margin-left 1s ease", // Smooth transition
         }}
       >
@@ -65,7 +64,7 @@ function Header({ data }) {
           <div
             key={index}
             style={{
-              width: `${100 / imageno + "%"}`,
+              width: `${100 / imageno}%`,
               backgroundImage: `url("https://image.tmdb.org/t/p/original${item.backdrop_path}")`,
               backgroundSize: "cover",
               position: "relative",
@@ -78,11 +77,11 @@ function Header({ data }) {
               style={{ zIndex: 0, pointerEvents: 'none' }} // Disable pointer events
             ></div>
             <div
-              className="flex justify-center items-center h-full w-[84vw]"
+              className="absolute w- inset-0 flex justify-center items-center"
               style={{ zIndex: 1, pointerEvents: 'auto' }} // Enable pointer events
             >
-              <header id="headertext" className="text-center flex  flex-col   ">
-                <h1 className="text-4xl">
+              <header id="headertext" className="text-center w-[100%] h-[100%] flex flex-col justify-center items-center">
+                <h1 className=" w-[80%]  text-xl md:text-2xl lg:text-4xl">
                   <span className="">
                     {truncateTitle(
                       item.title && item.original_title
@@ -94,7 +93,7 @@ function Header({ data }) {
                     )}
                   </span>
                 </h1>
-                <span className="block w-[50%] mx-auto p-5 monospace text-2xl text-white font-bold line-clamp-1 leading-[23px] mt-2">
+                <span className="block  xl:w-[40%]  p-5 md:text-xl lg:text-2xl  text-white font-bold line-clamp-2 leading-[28px] mt-2">
                   {truncateOverview(item.overview)}
                   <Link
                     to="/your-more-info-path"
@@ -103,18 +102,18 @@ function Header({ data }) {
                     moreinfo
                   </Link>
                 </span>
-                <div className="releasedata text-white  text-xl">
+                <div className="releasedata text-white text-xl ">
                   <span className="text-purple-200 text-2xl">Release Date: </span>{" "}
                   <i className="ri-calendar-line"></i> {item.release_date}
                 </div>
-                <div className="mediatype  text-white  text-xl">
+                <div className="mediatype text-white text-xl">
                   <span className="text-purple-200 text-xl">Media Type:</span>{" "}
                   <i className="ri-tape-line mr-2"></i>{item.media_type.toUpperCase()}
                 </div>
                 <div className="watch-trailer-link mt-4">
                   <Link
                     to={item.trailer_link} // Add the trailer link dynamically from the data
-                    className="Watchlink py-2  text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2"
+                    className="Watchlink py-2 text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2 "
                   >
                     Watch Trailer
                   </Link>

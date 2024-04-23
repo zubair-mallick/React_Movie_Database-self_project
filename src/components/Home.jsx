@@ -9,6 +9,9 @@ import Loader from "./Loader";
 
 function Home(props) {
   document.title = "ZMDBS || Home";
+      const [isOpen, setIsOpen] = useState(true);
+      
+
   const [wallpaper, setWallpaper] = useState(null);
   const [comedyCategory, setComedyCategory] = useState("tv");
   const [comedy, setComedy] = useState([]);
@@ -72,56 +75,82 @@ function Home(props) {
     fetchData("movie", "18", setDrama); // Fetch drama data
     fetchData("movie", "27", setHorror); // Fetch horror data
     fetchData("movie", "878", setSciFi); // Fetch sci-fi data
+    fetchData("movie", "28", setAction); // Fetch action data
+    fetchData("movie", "12", setAdventure); // Fetch adventure data
+    fetchData("movie", "16", setAnimation); // Fetch animation data
+    fetchData("movie", "80", setCrime); // Fetch crime data
+    fetchData("movie", "99", setDocumentary); // Fetch documentary data
+    fetchData("movie", "10751", setFamily); // Fetch family data
+    fetchData("movie", "14", setFantasy); // Fetch fantasy data
+    fetchData("movie", "36", setHistory); // Fetch history data
+    fetchData("movie", "10402", setMusic); // Fetch music data
+    fetchData("movie", "9648", setMystery); // Fetch mystery data
+    fetchData("movie", "10749", setRomance); // Fetch romance data
+    fetchData("movie", "10770", setTVMovie); // Fetch TV Movie data
+    fetchData("movie", "53", setThriller); // Fetch thriller data
+    fetchData("movie", "10752", setWar); // Fetch war data
+    fetchData("movie", "37", setWestern); // Fetch western data
+    
     !wallpaper && getHeaderWallpaper();
     lc !== trendingCategory && getTrending();
   }, [Trending, trendingCategory, comedyCategory, lc, wallpaper]);
 
-  // Function to handle lazy loading
-  const handleLazyLoad = async () => {
-    // Check if bottom of page is reached
-    if (
-      bottomOfPageRef.current.getBoundingClientRect().bottom <= window.innerHeight
-    ) {
-      // Fetch more data
-      // For example, fetch more comedy data
-      try {
-        const response = await axios.get(`/discover/${comedyCategory}`, {
-          params: {
-            api_key: '6b4357837079090f55db962379c437f2',
-            with_genres: '35' 
-          }
-        });
-        // Append newly fetched data to existing data
-        setComedy((prevData) => [...prevData, ...response.data.results]);
-      } catch (error) {
-        console.error('Error fetching comedy movies:', error);
-      }
-    }
-  };
 
-  useEffect(() => {
-    // Add scroll event listener
-    window.addEventListener("scroll", handleLazyLoad);
-    return () => {
-      // Remove scroll event listener when component unmounts
-      window.removeEventListener("scroll", handleLazyLoad);
-    };
-  }, []);
+
+ 
 
   const [drama, setDrama] = useState([]);
   const [horror, setHorror] = useState([]);
   const [sciFi, setSciFi] = useState([]);
+  const [action, setAction] = useState([]);
+  const [adventure, setAdventure] = useState([]);
+  const [animation, setAnimation] = useState([]);
+  const [crime, setCrime] = useState([]);
+  const [documentary, setDocumentary] = useState([]);
+  const [family, setFamily] = useState([]);
+  const [fantasy, setFantasy] = useState([]);
+  const [history, setHistory] = useState([]);
+  const [music, setMusic] = useState([]);
+  const [mystery, setMystery] = useState([]);
+  const [romance, setRomance] = useState([]);
+  const [tvmovie, setTVMovie] = useState([]);
+  const [thriller, setThriller] = useState([]);
+  const [war, setWar] = useState([]);
+  const [western, setWestern] = useState([]);
 
-  return wallpaper && Trending && comedy && drama && horror && sciFi ? (
+ 
+ 
+    const toggleNav = () => {
+      setIsOpen(!isOpen);
+    };
+
+
+  return wallpaper && Trending && comedy && drama && horror && sciFi && action && adventure && animation && crime && documentary && family && fantasy && history && music && mystery && romance && tvmovie && thriller && war && western ? (
     <>
-      <SideNav />
-      <div className="ml-[17vw] overflow-x-hidden overflow-auto">
-        <div className="ml-[26%]">
-          <Topnav />
-        </div>
-        <Header data={wallpaper} />
+    <button
+  className="fixed top-2 left-1 z-50  text-3xl   bg-transparent   text-center  text-white rounded-sm shadow-md  hover:text-red-200 transition-colors duration-300 focus:outline-none   "
+  onClick={toggleNav}
+>
+  {isOpen ? (
+    <>
+      <i className="ri-close-line "></i>
+    </>
+  ) : (
+    <>
+      <i className="ri-menu-line "></i> 
+    </>
+  )}
+</button>
+      {isOpen  && <SideNav  />}
+      <div className=" overflow-x-hidden overflow-auto" >
+        
+         <div className="w-[100%] ml-4  md:w-[100%] flex  justify-center my-2">
+         <Topnav />
+         </div>
+        
+        <Header data={wallpaper} isOpen={isOpen} />
         <div className="my-5 px-5 flex justify-between w-full">
-          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+          <h1 className="text-3xl font-semibold text-zinc-400">
             Trending
           </h1>
           <Dropdown
@@ -131,8 +160,8 @@ function Home(props) {
           />
         </div>
         <HorizontalCards data={Trending} />
-        <div className="my-5 px-5 flex justify-between w-full">
-          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+        <div className="my-2 px-5 flex justify-between w-full">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
             Comedy
           </h1>
           <Dropdown
@@ -143,10 +172,9 @@ function Home(props) {
         </div>
         <HorizontalCards data={comedy} />
         <div className="my-5 px-5 flex justify-between w-full">
-          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
             Drama
           </h1>
-          {/* Assuming drama genre id is 18 */}
           <Dropdown
             title="movie"
             options={["movie"]}
@@ -155,10 +183,9 @@ function Home(props) {
         </div>
         <HorizontalCards data={drama} />
         <div className="my-5 px-5 flex justify-between w-full">
-          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+          <h1 className="text-3xl font-semibold text-zinc-400">
             Horror
           </h1>
-          {/* Assuming horror genre id is 27 */}
           <Dropdown
             title="movie"
             options={["movie"]}
@@ -167,10 +194,9 @@ function Home(props) {
         </div>
         <HorizontalCards data={horror} />
         <div className="my-5 px-5 flex justify-between w-full">
-          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
             Sci-Fi
           </h1>
-          {/* Assuming sci-fi genre id is 878 */}
           <Dropdown
             title="movie"
             options={["movie"]}
@@ -178,7 +204,172 @@ function Home(props) {
           />
         </div>
         <HorizontalCards data={sciFi} />
-        {/* Marker for the bottom of the page */}
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
+            Action
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "28", setAction)}
+          />
+        </div>
+        <HorizontalCards data={action} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl font-semibold text-zinc-400">
+            Adventure
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "12", setAdventure)}
+          />
+        </div>
+        <HorizontalCards data={adventure} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
+            Animation
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "16", setAnimation)}
+          />
+        </div>
+        <HorizontalCards data={animation} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
+            Crime
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "80", setCrime)}
+          />
+        </div>
+        <HorizontalCards data={crime} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl  font-semibold text-zinc-400">
+            Documentary
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "99", setDocumentary)}
+          />
+        </div>
+        <HorizontalCards data={documentary} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Family
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "10751", setFamily)}
+          />
+        </div>
+        <HorizontalCards data={family} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Fantasy
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "14", setFantasy)}
+          />
+        </div>
+        <HorizontalCards data={fantasy} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            History
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "36", setHistory)}
+          />
+        </div>
+        <HorizontalCards data={history} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Music
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "10402", setMusic)}
+          />
+        </div>
+        <HorizontalCards data={music} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Mystery
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "9648", setMystery)}
+          />
+        </div>
+        <HorizontalCards data={mystery} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Romance
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "10749", setRomance)}
+          />
+        </div>
+        <HorizontalCards data={romance} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            TV Movie
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "10770", setTVMovie)}
+          />
+        </div>
+        <HorizontalCards data={tvmovie} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Thriller
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "53", setThriller)}
+          />
+        </div>
+        <HorizontalCards data={thriller} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            War
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "10752", setWar)}
+          />
+        </div>
+        <HorizontalCards data={war} />
+        <div className="my-5 px-5 flex justify-between w-full">
+          <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
+            Western
+          </h1>
+          <Dropdown
+            title="movie"
+            options={["movie"]}
+            func={(e) => fetchData("movie", "37", setWestern)}
+          />
+        </div>
+        <HorizontalCards data={western} />
+        <div className="w-screen h-2 " ></div>
         <div ref={bottomOfPageRef}></div>
       </div>
     </>
