@@ -1,8 +1,13 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import AnimatedCursor from "react-animated-cursor"
+
 import Trending from './components/template/Trending';
+import Popular from './components/template/Popular';
+import Movie from './components/template/Movie';
+import TvShows from './components/template/TvShows';
+import People from './components/template/People';
+import About from './components/template/About';
 
 
 function App(props) {
@@ -12,6 +17,15 @@ function App(props) {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/trending' element={<Trending />} />
+        <Route path='/popular' element={<Popular />} />
+        <Route path='/movie' element={<Movie />} />
+        <Route path='/tv_show' element={<TvShows />} />
+        <Route path='/people' element={<People />} />
+        <Route path='/about' element={<About/>} />
+
+
+
+
       </Routes>
     </div>
   );

@@ -88,12 +88,12 @@ function HorizontalCards({ data}) {
 
       <div className="  w-full min-h-[55%] flex   outline-none relative">
         <div
-          className="w-full min-h-[55%] overflow-y-hidden flex overflow-x-auto outline-none relative"
+          className="  w-full min-h-[55%] overflow-y-hidden flex overflow-x-auto outline-none relative"
           ref={scrollRef}
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className=" hover:scale-105 p-2  duration-150 hover:grayscale    
+            <div key={i} className=" hover:scale-110 p-2 pl-4  duration-150     
             min-w-[40vw] md:min-w-[28vw] lg:min-w-[26vw] h-[30%] bg-zinc-900 mr-5">
               <img
                 className=" max-h-[22vh] lg:max-h-[32vh] w-[100%] object-cover overflow-y-hidden"
@@ -120,12 +120,10 @@ function HorizontalCards({ data}) {
               <p className="text-base font-semibold text-white mt-2 mb-3 line-clamp-2">
                 {d.overview}
               </p>
-              <div className="flex justify-center">
+              <div className="flex justify-center mb-4">
                 {" "}
-                {/* Center the Link */}
-                <Link className="shadow-lg horizontalcardmoreinfo font-[ 'Berkshire Swash','cusive']  Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-xl px-[10%] mb-4">
-                  moreinfo
-                </Link>
+               
+                
               </div>
             </div>
           ))}

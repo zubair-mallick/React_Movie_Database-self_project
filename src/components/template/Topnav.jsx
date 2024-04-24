@@ -36,7 +36,7 @@ function Topnav(props) {
       <div className='absolute w-[90%] max-h-[50vh] bg-zinc-200 top-full lg:top-[90%] overflow-auto rounded-lg'>
         {searches && searches.map((s,i) =>(
           <Link key={i} className='hover:text-zinc-100 duration-300 hover:bg-zinc-600 text-zinc-600 font-semibold px-1  md:px-6 py-2 flex justify-start items-center border-b-2 border-zinc-100'>
-            <img className='shadow-lg w-[20vw] lg:w-[8rem] h-[12vh] lg:h-[12rem] rounded mr-2 object-cover' src={(s.backdrop_path || s.profile_path || s.poster_path) && `https://image.tmdb.org/t/p/original${s.backdrop_path || s.profile_path || s.poster_path}` || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt="" />
+            <img className='shadow-lg w-[20vw] lg:w-[8rem] h-[12vh] lg:h-[18vh] rounded mr-2 object-cover' src={(s.backdrop_path || s.profile_path || s.poster_path) && `https://image.tmdb.org/t/p/original${s.backdrop_path || s.profile_path || s.poster_path}` || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"} alt="" />
             <span>
               {s.title && s.original_title ? s.original_title +`(${s.title})` : s.original_title && s.original_title || s.name || s.original_name || s.title}
             </span>

@@ -10,14 +10,31 @@ import Loader from "./Loader";
 function Home(props) {
   document.title = "ZMDBS || Home";
       const [isOpen, setIsOpen] = useState(false);
-      
-
-  const [wallpaper, setWallpaper] = useState(null);
-  const [comedyCategory, setComedyCategory] = useState("tv");
-  const [comedy, setComedy] = useState([]);
-  const [Trending, setTrending] = useState(null);
-  const [trendingCategory, setTrendingCategory] = useState("all");
-  const [lc, setlc] = useState("notSet");
+      const [drama, setDrama] = useState([]);
+      const [horror, setHorror] = useState([]);
+      const [sciFi, setSciFi] = useState([]);
+      const [action, setAction] = useState([]);
+      const [adventure, setAdventure] = useState([]);
+      const [animation, setAnimation] = useState([]);
+      const [crime, setCrime] = useState([]);
+      const [documentary, setDocumentary] = useState([]);
+      const [family, setFamily] = useState([]);
+      const [fantasy, setFantasy] = useState([]);
+      const [history, setHistory] = useState([]);
+      const [music, setMusic] = useState([]);
+      const [mystery, setMystery] = useState([]);
+      const [romance, setRomance] = useState([]);
+      const [tvmovie, setTVMovie] = useState([]);
+      const [thriller, setThriller] = useState([]);
+      const [war, setWar] = useState([]);
+      const [western, setWestern] = useState([]);
+    
+      const [wallpaper, setWallpaper] = useState(null);
+      const [comedyCategory, setComedyCategory] = useState("tv");
+      const [comedy, setComedy] = useState([]);
+      const [Trending, setTrending] = useState(null);
+      const [trendingCategory, setTrendingCategory] = useState("all");
+      const [lc, setlc] = useState("notSet");
 
   // Ref to track the bottom of the page
   const bottomOfPageRef = useRef(null);
@@ -98,27 +115,6 @@ function Home(props) {
 
 
  
-
-  const [drama, setDrama] = useState([]);
-  const [horror, setHorror] = useState([]);
-  const [sciFi, setSciFi] = useState([]);
-  const [action, setAction] = useState([]);
-  const [adventure, setAdventure] = useState([]);
-  const [animation, setAnimation] = useState([]);
-  const [crime, setCrime] = useState([]);
-  const [documentary, setDocumentary] = useState([]);
-  const [family, setFamily] = useState([]);
-  const [fantasy, setFantasy] = useState([]);
-  const [history, setHistory] = useState([]);
-  const [music, setMusic] = useState([]);
-  const [mystery, setMystery] = useState([]);
-  const [romance, setRomance] = useState([]);
-  const [tvmovie, setTVMovie] = useState([]);
-  const [thriller, setThriller] = useState([]);
-  const [war, setWar] = useState([]);
-  const [western, setWestern] = useState([]);
-
- 
  
     const toggleNav = () => {
       setIsOpen(!isOpen);
@@ -144,11 +140,13 @@ function Home(props) {
       {isOpen  && <SideNav  />}
       <div className=" overflow-x-hidden overflow-auto" >
         
-         <div className="w-[100%] ml-4  md:w-[100%] flex  justify-center my-2">
+        <div>
+           <div className="w-[100%] ml-6  md:w-[100%] flex  justify-center my-2">
          <Topnav />
          </div>
         
         <Header data={wallpaper} isOpen={isOpen} />
+        <div className=" px-4" >
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl font-semibold text-zinc-400">
             Trending
@@ -372,6 +370,8 @@ function Home(props) {
         <div className="w-screen h-2 " ></div>
         <div ref={bottomOfPageRef}></div>
       </div>
+        </div>
+        </div>
     </>
   ) : (
     <Loader />

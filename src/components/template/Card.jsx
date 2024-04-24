@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 function Card({ data }) {
   return (
-    <div className="flex flex-wrap gap-x-[1.37%] w-full">
+    <div className="flex flex-wrap gap-[1.37%] w-full">
       {data.map((d, i) => (
-        <Link className="w-[47%] md:w-[30%] lg:w-[18.9%] mb-5 relative group overflow-hidden hover:scale-105  shadow-lg transition-transform duration-300 ease-in-out" key={i}>
+        <Link className="w-[47%] h-[full] md:w-[30%] lg:w-[18.9%] mb-5 relative group overflow-hidden hover:scale-105  shadow-lg transition-transform duration-300 ease-in-out" key={i}>
           <img src={`https://image.tmdb.org/t/p/original${d.poster_path || d.backdrop_path}`} alt="" className="w-full hover:grayscale hover:mix-blend-color-dodge duration-300" />
           <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-4 py-3 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
             <h1 className="text-lg font-semibold mb-1">{d.original_title || d.name || d.original_name || d.title}</h1>
