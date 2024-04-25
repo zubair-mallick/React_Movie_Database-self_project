@@ -8,7 +8,8 @@ import Movie from './components/template/Movie';
 import TvShows from './components/template/TvShows';
 import People from './components/template/People';
 import About from './components/template/About';
-
+import MovieDetails from './components/template/movieDetails';
+import TvDetails from './components/template/tvDetails';
 
 function App(props) {
   return (
@@ -19,7 +20,10 @@ function App(props) {
         <Route path='/trending' element={<Trending />} />
         <Route path='/popular' element={<Popular />} />
         <Route path='/movie' element={<Movie />} />
+        <Route path='/movie/details/:id' element={<MovieDetails/>} />
+
         <Route path='/tv_show' element={<TvShows />} />
+        <Route path='/tv/details/:id' element={<TvDetails/>} />
         <Route path='/people' element={<People />} />
         <Route path='/about' element={<About/>} />
 

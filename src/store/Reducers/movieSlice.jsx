@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState= {
-    value: null,
+    info: null,
   }
   export const movieSlice = createSlice({
     name: 'movie',
@@ -18,5 +18,5 @@ const initialState= {
   })
   
 
-  
+  export const {loadmovie,removemovie} = movieSlice.actions;
   export default movieSlice.reducer

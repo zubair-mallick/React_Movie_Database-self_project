@@ -1,10 +1,12 @@
 
 import React from 'react';
-
+import image from './../../public/load.gif'
 function Loader(props) {
+    console.log("props")
     return (
-        <div className="w-screen h-screen flex items-center justify-center ">
-        <img className='  object-contain        ' src="./loader.gif" alt="" />
+        
+        <div className="w-screen h-screen  flex items-center justify-center ">
+        <img className='  object-contain       ' src={image}  alt="notloading" />
             </div>
     );
 }

@@ -157,7 +157,8 @@ function Home(props) {
             func={(e) => setTrendingCategory(e.target.value)}
           />
         </div>
-        <HorizontalCards data={Trending} />
+        <HorizontalCards data={Trending} category={trendingCategory} />
+
         <div className="my-2 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Comedy
@@ -168,7 +169,7 @@ function Home(props) {
             func={(e) => setComedyCategory(e.target.value)}
           />
         </div>
-        <HorizontalCards data={comedy} />
+        <HorizontalCards data={comedy} category={comedyCategory} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Drama
@@ -179,7 +180,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "18", setDrama)}
           />
         </div>
-        <HorizontalCards data={drama} />
+        <HorizontalCards data={drama} category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl font-semibold text-zinc-400">
             Horror
@@ -190,7 +191,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "27", setHorror)}
           />
         </div>
-        <HorizontalCards data={horror} />
+        <HorizontalCards data={horror}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Sci-Fi
@@ -201,7 +202,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "878", setSciFi)}
           />
         </div>
-        <HorizontalCards data={sciFi} />
+        <HorizontalCards data={sciFi}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Action
@@ -212,7 +213,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "28", setAction)}
           />
         </div>
-        <HorizontalCards data={action} />
+        <HorizontalCards data={action}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl font-semibold text-zinc-400">
             Adventure
@@ -223,7 +224,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "12", setAdventure)}
           />
         </div>
-        <HorizontalCards data={adventure} />
+        <HorizontalCards data={adventure}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Animation
@@ -234,7 +235,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "16", setAnimation)}
           />
         </div>
-        <HorizontalCards data={animation} />
+        <HorizontalCards data={animation}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Crime
@@ -245,7 +246,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "80", setCrime)}
           />
         </div>
-        <HorizontalCards data={crime} />
+        <HorizontalCards data={crime}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl  font-semibold text-zinc-400">
             Documentary
@@ -253,10 +254,10 @@ function Home(props) {
           <Dropdown
             title="movie"
             options={["movie"]}
-            func={(e) => fetchData("movie", "99", setDocumentary)}
+            func={(e) => fetchData("movie", "99", setDocumentary) }
           />
         </div>
-        <HorizontalCards data={documentary} />
+        <HorizontalCards data={documentary}  category={"movie"}/>
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Family
@@ -267,7 +268,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "10751", setFamily)}
           />
         </div>
-        <HorizontalCards data={family} />
+        <HorizontalCards data={family}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Fantasy
@@ -278,7 +279,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "14", setFantasy)}
           />
         </div>
-        <HorizontalCards data={fantasy} />
+        <HorizontalCards data={fantasy}   category={"movie"}/>
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             History
@@ -289,7 +290,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "36", setHistory)}
           />
         </div>
-        <HorizontalCards data={history} />
+        <HorizontalCards data={history}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Music
@@ -300,7 +301,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "10402", setMusic)}
           />
         </div>
-        <HorizontalCards data={music} />
+        <HorizontalCards data={music}   category={"movie"}/>
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Mystery
@@ -311,7 +312,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "9648", setMystery)}
           />
         </div>
-        <HorizontalCards data={mystery} />
+        <HorizontalCards data={mystery}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Romance
@@ -322,7 +323,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "10749", setRomance)}
           />
         </div>
-        <HorizontalCards data={romance} />
+        <HorizontalCards data={romance}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             TV Movie
@@ -333,7 +334,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "10770", setTVMovie)}
           />
         </div>
-        <HorizontalCards data={tvmovie} />
+        <HorizontalCards data={tvmovie}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Thriller
@@ -344,7 +345,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "53", setThriller)}
           />
         </div>
-        <HorizontalCards data={thriller} />
+        <HorizontalCards data={thriller}  category={"movie"} />
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             War
@@ -355,7 +356,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "10752", setWar)}
           />
         </div>
-        <HorizontalCards data={war} />
+        <HorizontalCards data={war}  category={"movie"}/>
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl min-h-[55%] font-semibold text-zinc-400">
             Western
@@ -366,7 +367,7 @@ function Home(props) {
             func={(e) => fetchData("movie", "37", setWestern)}
           />
         </div>
-        <HorizontalCards data={western} />
+        <HorizontalCards data={western}  category={"movie"} />
         <div className="w-screen h-2 " ></div>
         <div ref={bottomOfPageRef}></div>
       </div>

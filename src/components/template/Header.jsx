@@ -116,8 +116,8 @@ function Header({ data, isOpen }) {
                 </h1>
                 <span className="block xl:w-[40%] p-5 md:text-xl lg:text-2xl text-white font-bold line-clamp-2 leading-[28px] mt-2">
                   {truncateOverview(item.overview)}
-                  <Link
-                    to="/your-more-info-path"
+                  <Link to={`/${item.media_type}/details/${item.id}`} 
+                   
                     className="Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2 pointer-events-auto"
                   >
                     moreinfo

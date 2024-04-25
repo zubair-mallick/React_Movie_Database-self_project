@@ -145,3 +145,18 @@ select::-ms-expand {
 .select:hover::after {
     color: #0e6d93;
 }
+
+.rating,.infodetailreleasedate{
+    text-shadow: #000000a4 2px 2px 2px;
+}
+.star{
+
+    text-shadow: #000000 1px 1px 2px;
+
+}
+.title_heading{
+    text-shadow: #000000 2px 3px 1px;
+}
+.genre{
+    text-shadow: #070000 0px 1px 1px 1px;
+}

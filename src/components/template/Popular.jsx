@@ -19,7 +19,7 @@ function Popular(props) {
         try {
           
           const { data } = await axios.get(`${category}/popular?page=${page}`);
-         console.log(data)
+         
     
           if(data.results.length > 0) {
           setPopular((prevstate)=>[...prevstate,...data.results]);

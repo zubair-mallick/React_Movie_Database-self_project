@@ -78,7 +78,7 @@ function TvShows(props) {
           next={gettvShow}
           loader={<h1 className=" text-white w-fit mx-auto pb-4 text-2xl  ">Loading...</h1>}
           >
-          <Card data={tvShow} title={category} />
+          <Card data={tvShow} title="tv" />
           </InfiniteScroll>
           {page==50 &&<h1 className=" text-white font-semibold  w-full  bg-zinc-600  pl-[50%] text-3xl  ">End</h1>}
         </div>

@@ -2,7 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
-function HorizontalCards({ data}) {
+function HorizontalCards({ data,category}) {
+  
   const scrollRef = useRef(null);
   const containerRef = useRef(null); 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -93,7 +94,7 @@ function HorizontalCards({ data}) {
           style={{ scrollBehavior: "smooth" }}
         >
           {data.map((d, i) => (
-            <div key={i} className=" hover:scale-110 p-2 pl-4  duration-150     
+            <Link to={`/${d.media_type || category}/details/${d.id}`} key={i} className=" hover:scale-110 p-2 pl-4  duration-150     
             min-w-[40vw] md:min-w-[28vw] lg:min-w-[26vw] h-[30%] bg-zinc-900 mr-5">
               <img
                 className=" max-h-[22vh] lg:max-h-[32vh] w-[100%] object-cover overflow-y-hidden"
@@ -125,7 +126,7 @@ function HorizontalCards({ data}) {
                
                 
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

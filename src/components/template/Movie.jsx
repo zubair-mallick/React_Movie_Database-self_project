@@ -19,7 +19,7 @@ function Movie(props) {
         try {
           
           const { data } = await axios.get(`movie/${category}?page=${page}`);
-         console.log(data)
+      
     
           if(data.results.length > 0) {
           setMovie((prevstate)=>[...prevstate,...data.results]);
@@ -79,7 +79,7 @@ function Movie(props) {
           next={getMovie}
           loader={<h1 className=" text-white w-fit mx-auto pb-4 text-2xl  ">Loading...</h1>}
           >
-          <Card data={movie} title={category} />
+          <Card data={movie} title="movie" />
           </InfiniteScroll>
           {page==50 &&<h1 className=" text-white font-semibold  w-full  bg-zinc-600  pl-[50%] text-3xl  ">End</h1>}
         </div>
