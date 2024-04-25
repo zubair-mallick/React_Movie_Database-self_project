@@ -10,7 +10,7 @@ import People from './components/template/People';
 import About from './components/template/About';
 import MovieDetails from './components/template/movieDetails';
 import TvDetails from './components/template/tvDetails';
-
+import Trailer from './components/template/Trailer';
 function App(props) {
   return (
     <div className=' bg-[#1f1e24]    flex'>
@@ -20,7 +20,9 @@ function App(props) {
         <Route path='/trending' element={<Trending />} />
         <Route path='/popular' element={<Popular />} />
         <Route path='/movie' element={<Movie />} />
-        <Route path='/movie/details/:id' element={<MovieDetails/>} />
+        <Route path='/movie/details/:id' element={<MovieDetails/>} >
+        <Route path='/movie/details/:id/trailer' element={<Trailer/>} />
+        </Route>
 
         <Route path='/tv_show' element={<TvShows />} />
         <Route path='/tv/details/:id' element={<TvDetails/>} />
@@ -29,7 +31,7 @@ function App(props) {
 
 
 
-
+        <Route path='*' element={<Home />} />
       </Routes>
     </div>
   );
