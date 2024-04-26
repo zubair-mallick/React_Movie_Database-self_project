@@ -1,9 +1,9 @@
 
-export { removetv } from "../Reducers/tvSlice"
+export { removeTv } from "../Reducers/tvSlice"
 import axios  from "../../utils/axios";
-import { loadtv } from "../Reducers/tvSlice";
+import { loadTv } from "../Reducers/tvSlice";
 
-export const asynLoadtv = (id) => async (dispatch,getState) => {
+export const asynLoadTv = (id) => async (dispatch,getState) => {
     try{
         const datail =   await axios.get(`/tv/${id}`);
         const externalid = await  axios.get(`/tv/${id}/external_ids`);
@@ -25,7 +25,7 @@ export const asynLoadtv = (id) => async (dispatch,getState) => {
 
         }
         // console.log(UltimateDetails)
-        dispatch(loadtv(UltimateDetails))
+        dispatch(loadTv(UltimateDetails))
         return 
     
     }

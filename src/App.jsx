@@ -25,7 +25,9 @@ function App(props) {
         </Route>
 
         <Route path='/tv_show' element={<TvShows />} />
-        <Route path='/tv/details/:id' element={<TvDetails/>} />
+        <Route path='/tv/details/:id' element={<TvDetails/>} >
+        <Route path='/tv/details/:id/trailer' element={<Trailer/>} />
+        </Route>
         <Route path='/people' element={<People />} />
         <Route path='/about' element={<About/>} />
 

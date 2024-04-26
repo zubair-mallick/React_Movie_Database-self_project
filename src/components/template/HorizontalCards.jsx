@@ -93,7 +93,28 @@ function HorizontalCards({ data,category}) {
           ref={scrollRef}
           style={{ scrollBehavior: "smooth" }}
         >
-          {data.map((d, i) => (
+          {category==="none"?data.map((d, i) => (
+            <div to={`/${d.media_type || category}/details/${d.id}`} key={i} className="  p-2 pl-4  duration-150     
+            min-w-[40vw] md:min-w-[28vw] lg:min-w-[26vw] h-[100%] bg-zinc-900 mr-5">
+              <img
+                className=" max-h-[22vh] lg:max-h-[32vh] w-[100%] object-cover overflow-y-hidden"
+                src={(d.backdrop_path|| d.poster_path  ) && `https://image.tmdb.org/t/p/original${d.backdrop_path  || d.poster_path}` || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"}
+                alt=""
+              />
+              <h1 className="md:text-xl font-black line-clamp-1 text-white text-xs ">
+                {(d.original_title || d.name || d.original_name || d.title)
+                  .length > 20
+                  ? `${(
+                      d.original_title ||
+                      d.name ||
+                      d.original_name ||
+                      d.title
+                    ).slice(0, 20)}...`
+                  : d.original_title || d.name || d.original_name || d.title }
+              </h1>
+            
+            </div>
+          )):data.map((d, i) => (
             <Link to={`/${d.media_type || category}/details/${d.id}`} key={i} className=" hover:scale-110 p-2 pl-4  duration-150     
             min-w-[40vw] md:min-w-[28vw] lg:min-w-[26vw] h-[100%] bg-zinc-900 mr-5">
               <img
@@ -110,12 +131,12 @@ function HorizontalCards({ data,category}) {
                       d.original_name ||
                       d.title
                     ).slice(0, 20)}...`
-                  : d.original_title || d.name || d.original_name || d.title}
+                  : d.original_title || d.name || d.original_name || d.title }
               </h1>
               <p className="md:text-base font-semibold text-white mt-2 mb-2 text-xs">
-                <span className="text-gray-400 ml ">Rating: </span>
-                {d.vote_average.toFixed(1)} |
-                <span className="text-gray-400  "> Language: </span>
+               { d.vote_average &&<span  className="text-gray-400 ml ">Rating: </span>}
+                {(d.vote_average.toFixed(1))} 
+                {d.original_language && <span className="text-gray-400  ">| Language: </span>}
                 {d.original_language}
               </p>
               <p className="md:text-base font-semibold text-white mt-2 mb-3 line-clamp-3 md:line-clamp-2 text-xs ">
@@ -127,7 +148,7 @@ function HorizontalCards({ data,category}) {
                 
               </div>
             </Link>
-          ))}
+          ))} 
         </div>
 
         <div id="buttons">
