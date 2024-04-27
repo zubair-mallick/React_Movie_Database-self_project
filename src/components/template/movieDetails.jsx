@@ -11,8 +11,9 @@ function MovieDetails(props) {
   const { id } = useParams();
   const { info } = useSelector((state) => state.movie);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
  
+
   useEffect(() => {
     dispatch(asynLoadMovie(id));
     return () => {
@@ -214,11 +215,11 @@ function MovieDetails(props) {
       </p>
       {/* recommendations and similar */}
       
-      {(info.recommendations || info.similar) &&  (<div>
+      {((info.recommendations && info.recommendations.length>0) && (info.similar.length || info.similar.length>0))&&  (<div>
         <h1 className="mt-2 infotranslation text-base ml-[5%]  md:ml-4 tracking-tighter md:text-2xl font-semibold text-zinc-100  md:w-[80%] mb-4">
           Recommendations & Similar stuff
         </h1>
-        {info.recommendations ? (
+        {(info.recommendations && info.recommendations.length>0) ? (
           <HorizontalCards data={info.recommendations} />
         ) : (
           <HorizontalCards data={info.similar} />

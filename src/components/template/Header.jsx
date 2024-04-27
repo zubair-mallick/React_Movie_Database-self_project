@@ -133,8 +133,8 @@ function Header({ data, isOpen }) {
                   {item.media_type.toUpperCase()}
                 </div>
                 <div className="watch-trailer-link mt-4">
-                  <Link
-                    to={item.trailer_link}
+                  <Link 
+                    to={`/${item.media_type}/details/${item.id}/trailer`}
                     className="Watchlink py-2 mb-2  text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2 pointer-events-auto"
                   >
                     Watch Trailer

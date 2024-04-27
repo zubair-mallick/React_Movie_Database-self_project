@@ -29,8 +29,9 @@ function Trailer(props) {
            >
            </Link>
                 <ReactPlayer
+                        controls
                     width={80 + "%"}
-                    height={80 + "%"}
+                    height={90 + "%"}
                     url={`https://www.youtube.com/watch?v=${key}`} />
             </div>
         </div>

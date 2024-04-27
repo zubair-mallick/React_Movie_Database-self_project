@@ -2,9 +2,9 @@ import axios from '..//../utils/axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Topnav from './Topnav';
-import Dropdown from './Dropdown';
+
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Card from './Card';
+
 import PeopleCard from './PeopleCard';
 
 function People(props) {
@@ -20,7 +20,7 @@ function People(props) {
         try {
           
           const { data } = await axios.get(`/person/popular`);
-         console.log(data)
+         
     
           if(data.results.length > 0) {
           setpeople((prevstate)=>[...prevstate,...data.results]);

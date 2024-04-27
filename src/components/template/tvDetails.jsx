@@ -12,7 +12,6 @@ function TvDetails(props) {
   const { info } = useSelector((state) => state.tv);
   const dispatch = useDispatch();
 
- 
   useEffect(() => {
     dispatch(asynLoadTv(id));
     return () => {
@@ -44,7 +43,7 @@ function TvDetails(props) {
       style={{
         backgroundImage: `url("https://image.tmdb.org/t/p/original${info.details.backdrop_path||info.details.poster_path}")`,
       }}
-      className=' relative backroundTvdetails backround w-full min-h-screen bg-cover bg-center bg-fixed md:bg-[url("https://image.tmdb.org/t/p/original${info.details.backdrop_path}")]   md:bg-[center] md:bg-[cover] overflow-y-hidden'
+      className=' relative backroundmoviedetails backround w-full min-h-screen bg-cover bg-center bg-fixed md:bg-[url("https://image.tmdb.org/t/p/original${info.details.backdrop_path}")]   md:bg-[center] md:bg-[cover] overflow-y-hidden'
     >
       
       <nav className="h-[10vh] w-full text-zinc-100 flex gap-6 items-center">
@@ -83,9 +82,7 @@ function TvDetails(props) {
       <div className="w-full flex flex-col md:flex-row">
         <div className="   md:mx-2 ">
           <img
-            src={`https://image.tmdb.org/t/p/original${
-              info.details.poster_path || info.details.backdrop_path
-            }`}
+              src={(info.details.backdrop_path|| info.details.poster_path  ) && `https://image.tmdb.org/t/p/original${info.details.poster_path||info.details.backdrop_path  }` || "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"}
             alt=""
             className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)]  w-[100%] xsm:h-[10vh] h-[50vh] md:max-h-[65vh] md:min-h-[70%]  md:min-w-[20vw] md:max-w-[30vw] md:object-fit  object-cover "
           />
@@ -157,7 +154,7 @@ function TvDetails(props) {
               info.watchProviders.flatrate &&
               info.watchProviders.flatrate.length > 0 && (
                 <>
-                  <p className="text-zinc-300 font-semibold mr-2">Flatrate:</p>
+                  <p className="rating text-red-200 font-semibold md:ml-4 ">Flatrate:</p>
                   {info.watchProviders.flatrate.slice(0, 4).map((provider) => (
                     <img
                       key={nanoid()}
@@ -174,7 +171,7 @@ function TvDetails(props) {
               info.watchProviders.rent &&
               info.watchProviders.rent.length > 0 && (
                 <>
-                  <p className="text-zinc-300 font-semibold mr-2">Rent:</p>
+                  <p className="rating text-red-200 font-semibold md:ml-4 ">Rent:</p>
                   {info.watchProviders.rent.slice(0, 4).map((provider) => (
                     <img
                       key={nanoid()}
@@ -191,7 +188,7 @@ function TvDetails(props) {
               info.watchProviders.buy &&
               info.watchProviders.buy.length > 0 && (
                 <>
-                  <p className="text-zinc-300 font-semibold mr-2">Buy:</p>
+                  <p className=" rating text-red-200 font-semibold md:ml-4 mr-2">Buy:</p>
                   {info.watchProviders.buy.slice(0, 4).map((provider) => (
                     <img
                       key={nanoid()}
@@ -224,11 +221,11 @@ function TvDetails(props) {
      
       </div>)}
         <hr />
-      {((info.recommendations || info.similar) && (info.recommendations.length>0||info.similar.length>0)) &&  (<div>
+      {((info.recommendations ||info.recommendations.length>0 ) && (info.similar||info.similar.length>0)) &&  (<div>
         <h1 className="mt-2 infotranslation text-base ml-[5%]  md:ml-4 tracking-tighter md:text-2xl font-semibold text-zinc-100  md:w-[80%] mb-4">
           Recommendations & Similar stuff
         </h1>
-        {info.recommendations ? (
+        {info.recommendations && info.recommendations.length>0 ? (
           <HorizontalCards data={info.recommendations} />
         ) : (
           <HorizontalCards data={info.similar} />

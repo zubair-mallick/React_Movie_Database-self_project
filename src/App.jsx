@@ -11,9 +11,10 @@ import About from './components/template/About';
 import MovieDetails from './components/template/movieDetails';
 import TvDetails from './components/template/tvDetails';
 import Trailer from './components/template/Trailer';
+import PersonDetail from './components/template/personDetail';
 function App(props) {
   return (
-    <div className=' bg-[#1f1e24]    flex'>
+    <div className=' bg-[#1f1e24]    flex '>
   
       <Routes>
         <Route path='/' element={<Home />} />
@@ -29,6 +30,7 @@ function App(props) {
         <Route path='/tv/details/:id/trailer' element={<Trailer/>} />
         </Route>
         <Route path='/people' element={<People />} />
+        <Route path='/person/details/:id' element={<PersonDetail/>} />
         <Route path='/about' element={<About/>} />
 
 

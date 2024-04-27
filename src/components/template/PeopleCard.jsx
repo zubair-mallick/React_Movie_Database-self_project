@@ -5,7 +5,7 @@ function PeopleCard({ data }) {
   return (
     <div className="flex flex-wrap gap-[1.37%] w-full">
       {data.map((person, index) => (
-        <Link to={`/people/details/${person.id}`} className="w-[47%] h-[full] md:w-[30%] lg:w-[18.9%] mb-5 relative group overflow-hidden hover:scale-105 shadow-lg transition-transform duration-300 ease-in-out" key={index}>
+        <Link to={`/person/details/${person.id}`} className="w-[47%] h-[full] md:w-[30%] lg:w-[18.9%] mb-5 relative group overflow-hidden hover:scale-105 shadow-lg transition-transform duration-300 ease-in-out" key={index}>
           <img 
             src={`https://image.tmdb.org/t/p/original${person.profile_path}`} 
             onError={(e) => {e.target.onerror = null; e.target.src = 'https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg'}} 

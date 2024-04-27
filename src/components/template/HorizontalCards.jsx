@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Dropdown from "./Dropdown";
+
 
 function HorizontalCards({ data,category}) {
   
@@ -87,7 +87,7 @@ function HorizontalCards({ data,category}) {
 
    
 
-      <div className="  w-full min-h-[55%] flex   outline-none relative">
+      <div className="  w-full min-h-[55%] max-h-[85%]  md:max-h-[100%] flex   outline-none relative">
         <div
           className="  w-full min-h-[55%] overflow-y-hidden flex overflow-x-auto outline-none relative"
           ref={scrollRef}
@@ -134,12 +134,12 @@ function HorizontalCards({ data,category}) {
                   : d.original_title || d.name || d.original_name || d.title }
               </h1>
               <p className="md:text-base font-semibold text-white mt-2 mb-2 text-xs">
-               { d.vote_average &&<span  className="text-gray-400 ml ">Rating: </span>}
+               { d.vote_average &&<span  className="text-gray-400  ">Rating: </span>}
                 {(d.vote_average.toFixed(1))} 
                 {d.original_language && <span className="text-gray-400  ">| Language: </span>}
                 {d.original_language}
               </p>
-              <p className="md:text-base font-semibold text-white mt-2 mb-3 line-clamp-3 md:line-clamp-2 text-xs ">
+              <p className="md:text-base font-semibold text-white mt-2 md:mb-3 line-clamp-3 md:line-clamp-2 text-xs ">
                 {d.overview}
               </p>
               <div className="flex justify-center ">

@@ -29,6 +29,9 @@
 }
 
 body {
+    width: 100%;
+    
+
     /* overflow-x: hidden; */
 }
 
@@ -174,4 +177,11 @@ select::-ms-expand {
 }
 .backroundmoviedetails{
     box-shadow: inset 0 0 0 2000px rgba(39, 23, 23, 0.343);
+}
+
+#readmore{
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
