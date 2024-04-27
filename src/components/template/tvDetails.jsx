@@ -37,7 +37,6 @@ function TvDetails(props) {
     return starArray;
   };
   
-  console.log(info)
   return info ? (
     <div 
       style={{
