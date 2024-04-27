@@ -124,7 +124,7 @@ function Home(props) {
   return wallpaper && Trending && comedy && drama && horror && sciFi && action && adventure && animation && crime && documentary && family && fantasy && history && music && mystery && romance && tvmovie && thriller && war && western ? (
     <>
     <button
-  className="fixed top-2 left-1 z-50  text-3xl   bg-transparent   text-center  text-white rounded-sm shadow-md  hover:text-red-200 transition-colors duration-300 focus:outline-none   "
+  className="fixed top-2 md:left-1 z-50  text-3xl   bg-transparent   text-center  text-white rounded-sm shadow-md  hover:text-red-200 transition-colors duration-300 focus:outline-none   "
   onClick={toggleNav}
 >
   {isOpen ? (
@@ -146,7 +146,7 @@ function Home(props) {
          </div>
         
         <Header data={wallpaper} isOpen={isOpen} />
-        <div className=" px-4" >
+        <div className=" md:px-4" >
         <div className="my-5 px-5 flex justify-between w-full">
           <h1 className="text-3xl font-semibold text-zinc-400">
             Trending

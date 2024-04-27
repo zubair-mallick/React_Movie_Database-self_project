@@ -50,14 +50,16 @@ function Popular(props) {
     return popular? (
         <div className="px-[3%] pt-4 w-screen   min-h-screen">
           <div className=" mb-4 flex flex-col lg:flex-row items-center justify-between">
-            <div className="flex flex-col lg:flex-row items-center justify-between w-full lg:w-[76%]">
-              <h1 className="text-3xl font-semibold text-zinc-400">
+            <div className="flex flex-col lg:flex-row items-center g justify-between w-full lg:w-[76%] ">
+            
+              <h1 className="text-3xl font-semibold text-zinc-400   ">
                 <i
                   onClick={() => navigate(-1)}
-                  className="hover:text-[#6446cd] ri-arrow-left-line cursor-pointer"
+                  className="hover:text-[#6446cd] ri-arrow-left-line cursor-pointer mr-2"
                 ></i>
                 Popular
               </h1>
+        
               <Topnav />
             </div>
             <div className="flex gap-4 mt-4 lg:mt-0">

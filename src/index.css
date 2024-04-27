@@ -13,12 +13,7 @@
     width: 7px;
     height: 7px;
 }
-@media (max-width: 768px) {
-    ::-webkit-scrollbar {
-      width: 7px;
-      height: 0px; /* Set to 0 to hide the horizontal scrollbar */
-    }
-  }
+
 ::-webkit-scrollbar-thumb {
     border-radius: 2px;
     background-color: #9e93f3bc;

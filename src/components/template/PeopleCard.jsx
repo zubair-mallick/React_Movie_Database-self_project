@@ -11,7 +11,7 @@ function PeopleCard({ data }) {
             onError={(e) => {e.target.onerror = null; e.target.src = 'https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg'}} 
             alt={person.name} 
             className="w-full hover:grayscale hover:mix-blend-color-dodge duration-300" />
-          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-4 py-3 transition-opacity duration-300 ease-in-out opacity-0 group-hover:opacity-100">
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white px-4 py-3 transition-opacity duration-300 ease-in-out md:opacity-0 group-hover:opacity-100">
             <h1 className="text-base font-semibold mb-1">{person.name}</h1>
             <p className="text-gray-300 text-xs">Known For: {person.known_for.map(item => item.original_title || item.name).join(", ")}</p>
           </div>

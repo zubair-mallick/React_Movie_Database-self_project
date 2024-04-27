@@ -106,7 +106,7 @@ function personDetails(props) {
            hover:text-red-300 cursor-pointer  mb-2" >{readMore? "readmore":"readless"} </span>
           <div>
   {(info.details.deathday || info.details.known_for_department || info.details.gender) && (
-        <div className="ml-2 flex flex-col items-center md:items-start flex-wrap ">
+        <div className="md:ml-2 flex flex-col  md:items-start flex-wrap ">
           <h1 className="text-2xl mt-2 md:text-xl lg:text-2xl text-zinc-200 font-bold ">Personal Information</h1>
 
          

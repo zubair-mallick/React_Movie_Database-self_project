@@ -118,24 +118,24 @@ function Header({ data, isOpen }) {
                   {truncateOverview(item.overview)}
                   <Link to={`/${item.media_type}/details/${item.id}`} 
                    
-                    className="Headlink text-blue-200 font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2 pointer-events-auto"
+                    className="Headlink md:text-blue-200 text-purple-300 font-extrabold md:border-2 md:border-black md:rounded-md md:bg-purple-800 md:text-2xl px-2 text-base pointer-events-auto"
                   >
                     moreinfo
                   </Link>
                 </span>
-                <div className="releasedata text-white text-xl">
-                  <span className="text-purple-200 text-2xl">Release Date: </span>{" "}
-                  <i className="ri-calendar-line"></i> {item.release_date}
+                <div className="releasedata text-white md:text-xl">
+                  <span className="text-purple-200  md:text-2xl">Release Date: </span>{" "}
+                  <i className="ri-calendar-line "></i> {item.release_date}
                 </div>
-                <div className="mediatype text-white text-xl">
-                  <span className="text-purple-200 text-xl">Media Type:</span>{" "}
-                  <i className="ri-tape-line mr-2"></i>
+                <div className="mediatype text-white text-whitemd:text-xl">
+                  <span className="text-purple-200 md:text-2xl">Media Type:</span>{" "}
+                  <i className="ri-tape-line mr-2 text-white"></i>
                   {item.media_type.toUpperCase()}
                 </div>
                 <div className="watch-trailer-link mt-4">
                   <Link 
                     to={`/${item.media_type}/details/${item.id}/trailer`}
-                    className="Watchlink py-2 mb-2  text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-2xl px-2 pointer-events-auto"
+                    className="Watchlink py-2 mb-2  text-white font-extrabold border-2 border-black rounded-md bg-purple-800 text-base md:text-2xl px-2 pointer-events-auto"
                   >
                     Watch Trailer
                   </Link>
@@ -146,10 +146,10 @@ function Header({ data, isOpen }) {
         ))}
       </div>
       {/* Arrow buttons */}
-      <button className="pointer-events-auto absolute top-1/2 w-10 h-10 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" onClick={goToPrevSlide}>
+      <button className=" hidden md:block pointer-events-auto absolute top-1/2 w-10 h-10 left-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" onClick={goToPrevSlide}>
         <i className="ri-arrow-left-fill"></i>
       </button>
-      <button className="pointer-events-auto absolute w-10 h-10 top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" onClick={goToNextSlide}>
+      <button className="hidden md:block pointer-events-auto absolute w-10 h-10 top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white rounded-full p-2" onClick={goToNextSlide}>
         <i className="ri-arrow-right-fill"></i>
       </button>
 
